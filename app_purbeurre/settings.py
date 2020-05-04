@@ -29,7 +29,7 @@ if os.environ.get('ENV') == 'PRODUCTION':
 else:
     DEBUG = True
 
-ALLOWED_HOSTS = ['https://pbflavien.herokuapp.com/']
+ALLOWED_HOSTS = ['https://pbflavien.herokuapp.com']
 
 
 # Application definition
