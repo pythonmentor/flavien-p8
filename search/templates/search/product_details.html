@@ -1,0 +1,62 @@
+{% extends "base.html" %}
+
+{% load static %}
+
+{% block content %}
+
+{% if not object.image %}
+<header class="profile-header"></header>
+{% else %}
+<header class="product-header" style="background: linear-gradient(to bottom,rgba(92, 77, 66, 0.8) 0%, rgba(92, 77, 66, 0.8) 100%), url({{object.image}})">
+{% endif %}
+    <div class="container h-100">
+        <div class="row h-100 align-items-center justify-content-center text-center">
+            <div class="col-lg-10 align-self-end">
+                <h1 class="text-uppercase text-white font-weight-bold">{{ object.name }}</h1>
+                <hr class="divider my-4" />
+                <p class="text-white-75 font-weight-light mb-5">Informations sur ce produit</p>
+        </div>
+    </div>
+</header>
+
+<section class="container">
+    <div class="row h-100 align-items-center justify-content-center text-center">
+        <div class="col-lg-5 col-md-6 col-sm-4 align-self-start text-center p-3">
+            <div class="card">
+                <div class="card-header text-white-75">
+                Nutriscore
+                </div>
+                <div class="card-body">
+                    <div class="product-details-nutriscore text-center nutriscore-{{ object.nutriscore }}">{{ object.nutriscore|upper }}</div>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-5 col-md-6 col-sm-4 align-self-start text-center p-3">
+            <div class="card">
+                <div class="card-header text-white-75">
+                Repères nutritionnels pour 100g
+                </div>
+                <div class="card-body">
+                    <ul class="list-group list-group-flush text-left">
+                        <li class="list-group-item text-muted"> <strong>Matières grasses / Lipides :</strong> {{ object.lipids_for_100g }}g </li>
+                        <li class="list-group-item text-muted"> <strong>Acides gras saturés :</strong> {{ object.saturated_fats_for_100g }}g </li>
+                        <li class="list-group-item text-muted"> <strong>Sucres :</strong> {{ object.sugars_for_100g }}g </li>
+                        <li class="list-group-item text-muted"> <strong>Sel :</strong> {{ object.salt_for_100g }}g </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row h-100 align-items-center justify-content-center text-center">
+        <div class="col-lg-5 col-md-6 col-sm-4 align-self-start text-center p-3">
+            <div class="card">
+                <div class="card-header text-white-75">
+                    <a href="{{ object.url }}">Découvrir la fiche de cet aliment sur OpenFoodFacts
+                        <i class="fas fa-utensils fa-2x fa-fw" title="Lien vers sa fiche"></i></a>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+{% endblock %}
