@@ -1,0 +1,90 @@
+{% extends "base.html" %}
+
+{% load static %}
+
+{% block content %}
+
+<!-- Masthead-->
+<header class="masthead">
+    <div class="container h-100">
+        <div class="row h-100 align-items-center justify-content-center text-center">
+            <div class="col-lg-10 align-self-end">
+                <h1 class="text-uppercase text-white font-weight-bold">Du gras, oui, mais de qualité !</h1>
+                <hr class="divider my-4" />
+            </div>
+            <div class="col-lg-8 align-self-baseline">
+                <p class="text-white-75 font-weight-light mb-5">Trouvez un produit de substitution pour ceux que vous consommez tous les jours</p>
+            </div>
+            <div class="col-lg-5 align-self-start">
+                <form method="get" action="{% url 'search:search' %}"> 
+                    <div class="form-row align-items-center">
+                        <div class="col-sm-9 my-1">
+                            <input type="text" name="query" class="form-control" placeholder="Produit">
+                        </div>
+                        <div class="col-auto my-1">
+                            <button type="submit" class="btn btn-secondary">Chercher</button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</header>
+
+<!-- Services section-->
+<section class="page-section" id="services">
+    <div class="container">
+        <h2 class="text-center mt-0">Colette et Rémy</h2>
+        <hr class="divider-secondary my-4" />
+        <div class="row">
+            <div class="col-lg-6 col-md-6 text-center">
+                <div class="mt-5">
+                    <i class="fas fa-4x fa-gem text-primary mb-4"></i>
+                    <h3 class="h4 mb-2">Colette</h3>
+                    <p class="text-muted mb-0">"Pourquoi Pur Beurre ? Parce qu'il est parfois difficile de changer ses habitudes alimentaires 
+                                            sans un petit coup de pouce ! Il suffit parfois d'un conseil simple et rapide pour sauter le pas,
+                                            et ce coup de pouce c'est Pur Beurre."</p>
+                    <img src="{% static 'img/colette.png' %}" width="132" height="286" alt="Colette" />
+                </div>
+            </div>
+            <div class="col-lg-6 col-md-6 text-center">
+                <div class="mt-5">
+                    <i class="fas fa-4x fa-laptop-code text-primary mb-4"></i>
+                    <h3 class="h4 mb-2">Rémy</h3>
+                    <p class="text-muted mb-0">"Nous les Français, nous sommes réputés pour cela : une fois à table, nous parlons de ce que 
+                                            nous mangeons, de ce que nous avons mangé et de ce que nous mangerons ! Quoi de plus naturel que
+                                            de rendre nos repas plus sains et agrémenter nos discussions ?"</p>
+                    <img src="{% static 'img/ratatouille.jpg' %}" width="350" height="286" alt="Rémy" />
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<!-- Contact section-->
+<section class="page-section" id="contact">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-lg-8 text-center">
+                <h2 class="mt-0">Restons en contact</h2>
+                <hr class="divider-secondary my-4" />
+                <p class="text-muted mb-5">Vous avez des idées pour améliorer notre application ? Des retours à nous faire ? 
+                                        Ou tout simplement envie de partager notre passion des bonnes choses ?
+                                        Contactez Pur Beurre, par le moyen de votre choix !</p>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-4 ml-auto text-center mb-5 mb-lg-0">
+                <i class="fas fa-phone fa-3x mb-3 text-icons"></i>
+                <div>+1 (555) 123-4567</div>
+            </div>
+            <div class="col-lg-4 mr-auto text-center">
+                <i class="fas fa-envelope fa-3x mb-3 text-icons"></i>
+                <a class="d-block text-icons" href="mailto:contact@purbeurre.fr">contact@purbeurre.fr</a>
+            </div>
+        </div>
+    </div>
+</section>
+
+{% endblock %}
