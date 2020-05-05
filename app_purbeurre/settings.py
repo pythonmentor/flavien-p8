@@ -12,6 +12,7 @@ https://docs.djangoproject.com/en/3.0/ref/settings/
 
 import os
 
+
 # Configure Django App for Heroku.
 import django_heroku
 
@@ -86,10 +87,12 @@ WSGI_APPLICATION = 'app_purbeurre.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': '',
-        'USER': '',
-        'PASSWORD': '',
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': 'db_purbeurre',
+        'USER': 'admin_purbeurre',
+        'PASSWORD': 'purbeurre',
+        'HOST': 'localhost',
+        'PORT': '5432',
     }
 }
 
@@ -133,10 +136,28 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
+STATICFILES_DIRS = (os.path.join(BASE_DIR, "static"),)
+
 LOGIN_REDIRECT_URL = "/"
 LOGOUT_REDIRECT_URL = "/"
 LOGIN_URL = "/authentication"
 
+if os.environ.get('ENV') == 'PRODUCTION':
+
+    # Static files settings
+    PROJECT_ROOT = os.path.dirname(os.path.abspath(__file__))
+
+    STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+
+    # Extra places for collectstatic to find static files.
+    STATICFILES_DIRS = (
+        os.path.join(BASE_DIR, 'static'),
+    )
+    
+    STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+
+    db_from_env = dj_database_url.config(conn_max_age=500)
+    DATABASES['default'].update(db_from_env)
 
 # Activate Django-Heroku.
 django_heroku.settings(locals())

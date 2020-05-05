@@ -1,12 +1,22 @@
 // Base styling for the navbar
 #mainNav {
   box-shadow: $box-shadow;
-  background-color: $white;
+  background-color: transparent;
   transition: background-color 0.2s ease;
   .navbar-brand {
     font-family: $font-family-sans-serif;
     font-weight: $font-weight-bold;
-    color: $primary;
+    color: rgba(255, 255, 255, 0.7);
+  }
+  &.navbar-scrolled {
+    box-shadow: $box-shadow;
+    background-color: $primary; //navbar background
+    .navbar-brand {
+      color: $black;
+      &:hover {
+        color: $cookie;
+      }
+    }
   }
   .navbar-nav {
     .nav-item {
@@ -24,11 +34,25 @@
           color: $primary!important;
         }
       }
+  
+
+  .navbar-toggler {
+        padding: $navbar-toggler-padding-y $navbar-toggler-padding-x;
+        @include font-size($navbar-toggler-font-size);
+        line-height: 1;
+        background-color: paleturquoise; // remove default button style
+        border: $border-width solid transparent; // remove default button style
+        @include border-radius($navbar-toggler-border-radius);
+      
+        @include hover-focus() {
+          text-decoration: none;
+        }
+      }
     }
   }
   @include media-breakpoint-up(lg) {
     // Base styling for the navbar - screen sizes greater than the large breakpoint
-    box-shadow: none;
+    box-shadow: $box-shadow;
     background-color: transparent;
     .navbar-brand {
       color: fade-out($white, .3);
@@ -67,7 +91,7 @@
           .nav-link {
             color: $gray-900;
             &:hover {
-              color: $cookie; //highlight icon when scrolledbar on
+              color: $cookie; //highlight icon when scrollbar is on
             }
           }
         }
