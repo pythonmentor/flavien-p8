@@ -7,12 +7,18 @@
     font-family: $font-family-sans-serif;
     font-weight: $font-weight-bold;
     color: $grey;
+    &:hover {
+        color: $primary;
+    }
   }
   .navbar-toggler {
     border: 1px solid $grey;  
+    &:hover {
+        border: 2px solid $primary; 
+      }
   }
-    .navbar-toggler-icon {
-        background-image: escape-svg($navbar-dark-toggler-icon-bg);
+  .navbar-toggler-icon {
+    background-image: escape-svg($navbar-dark-toggler-icon-bg);
     }
   &.navbar-scrolled {
     box-shadow: $box-shadow;
@@ -33,10 +39,6 @@
     }
       .navbar-toggler-icon {
         background-image: escape-svg($navbar-light-toggler-icon-bg);
-      
-      &:hover {
-        background-color: $cookie; 
-        }    
       }
     }
   .navbar-nav {

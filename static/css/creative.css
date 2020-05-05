@@ -10064,8 +10064,14 @@ hr.light {
   font-weight: 700;
   color: rgba(255, 255, 255, 0.7);
 }
+#mainNav .navbar-brand:hover {
+  color: white;
+}
 #mainNav .navbar-toggler {
   border: 1px solid rgba(255, 255, 255, 0.7);
+}
+#mainNav .navbar-toggler:hover {
+  border: 2px solid white;
 }
 #mainNav .navbar-toggler-icon {
   background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' width='30' height='30' viewBox='0 0 30 30'%3e%3cpath stroke='rgba(255, 255, 255, 0.5)' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
@@ -10089,9 +10095,6 @@ hr.light {
 }
 #mainNav.navbar-scrolled .navbar-toggler-icon {
   background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' width='30' height='30' viewBox='0 0 30 30'%3e%3cpath stroke='rgba(0, 0, 0, 0.5)' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
-}
-#mainNav.navbar-scrolled .navbar-toggler-icon:hover {
-  background-color: #d37903;
 }
 #mainNav .navbar-nav .nav-item .nav-link {
   color: #6c757d;
