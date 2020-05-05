@@ -66,7 +66,7 @@
         {% block content %}{% endblock %}
 
         <!-- Footer-->
-        <footer class="bg-secondary fixed-bottom py-3">
+        <footer class="bg-secondary py-3" id="footerjs">
             <div class="container">
                 <div class="row">
                     <div class="col-lg-4 ml-auto text-center mb-5 mb-lg-0 small text-muted">
@@ -83,12 +83,13 @@
         </footer>
         
         <!-- Bootstrap core JS-->
-        <script src="{% static 'vendor/jquery/jquery.min.js' %}"></script>
-        <script src="{% static 'vendor/bootstrap/dist/js/bootstrap.bundle.min.js' %}"></script>
+        <script src="{% static 'node_modules/jquery/dist/jquery.min.js' %}"></script>
+        <script src="{% static 'node_modules/bootstrap/dist/js/bootstrap.bundle.min.js' %}"></script>
         <!-- Third party plugin JS-->
-        <script src="{% static 'vendor/jquery/jquery.easing.min.js' %}"></script>
+        <script src="{% static 'vendor/jquery-easing/jquery.easing.min.js' %}"></script>
         <script src="{% static 'vendor/magnific-popup/jquery.magnific-popup.min.js' %}"></script>
         <!-- Core theme JS-->
-        <script src="{% static 'js/creative.js' %}"></script>
+        <script src="{% static 'js/creative.min.js' %}"></script>
+        <script src="{% static 'js/custom.js' %}"></script>
     </body>
 </html>
