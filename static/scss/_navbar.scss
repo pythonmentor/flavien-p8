@@ -6,8 +6,14 @@
   .navbar-brand {
     font-family: $font-family-sans-serif;
     font-weight: $font-weight-bold;
-    color: rgba(255, 255, 255, 0.7);
+    color: $grey;
   }
+  .navbar-toggler {
+    border: 1px solid $grey;  
+  }
+    .navbar-toggler-icon {
+        background-image: escape-svg($navbar-dark-toggler-icon-bg);
+    }
   &.navbar-scrolled {
     box-shadow: $box-shadow;
     background-color: $primary; //navbar background
@@ -17,7 +23,22 @@
         color: $cookie;
       }
     }
-  }
+    .navbar-toggler {
+        border: 1px solid $black;  
+      
+      &:hover {
+        border: 1px solid $cookie;
+        background-color: $cookie;  
+      }
+    }
+      .navbar-toggler-icon {
+        background-image: escape-svg($navbar-light-toggler-icon-bg);
+      
+      &:hover {
+        background-color: $cookie; 
+        }    
+      }
+    }
   .navbar-nav {
     .nav-item {
       .nav-link {
@@ -32,20 +53,6 @@
         }
         &.active {
           color: $primary!important;
-        }
-      }
-  
-
-  .navbar-toggler {
-        padding: $navbar-toggler-padding-y $navbar-toggler-padding-x;
-        @include font-size($navbar-toggler-font-size);
-        line-height: 1;
-        background-color: paleturquoise; // remove default button style
-        border: $border-width solid transparent; // remove default button style
-        @include border-radius($navbar-toggler-border-radius);
-      
-        @include hover-focus() {
-          text-decoration: none;
         }
       }
     }
