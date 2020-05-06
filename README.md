@@ -7,7 +7,7 @@ quality. The program also gives you the possibility of creating an user account 
 
 # What does Pur Beurre really do ?
 ----------------
-Once you arrive on the [Pur Beurre application page](https://gp-bot-app.herokuapp.com/) :\
+Once you arrive on the [Pur Beurre application page](https://pbflavien.herokuapp.com) :\
 	- you can make a simple request by using the query form, then visualize the results \
 	- you can create an account and then log in to be able to save your future search results
 
