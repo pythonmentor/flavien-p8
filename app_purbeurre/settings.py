@@ -160,4 +160,4 @@ if os.environ.get('ENV') == 'PRODUCTION':
     DATABASES['default'].update(db_from_env)
 
 # Activate Django-Heroku.
-django_heroku.settings(locals())
+# django_heroku.settings(locals())

@@ -17,7 +17,11 @@ from authentication.models import User
 
 
 def db_init():
-    """Create a few temp products to perform tests"""
+    """Create a temp user and temp products to perform tests"""
+    user = User.objects.create(email='remy@purbeurre.fr')
+    user.set_password('pixar2020')
+    user.save()
+
     data = Category(name="Pate à tartiner")
     data.save()
 
@@ -72,9 +76,8 @@ class TestSaveSubstitution(TestCase):
     @classmethod
     def setUpTestData(cls):
         cls.client = Client()
-        cls.sub_url = reverse('save:substitution')
-        cls.save_url = reverse('save:save')
         cls.favorites_url = reverse('save:favorites')
+        cls.save_url = reverse('save:save')
         db_init()
 
     def test_substitution_page_returns_200(self):     # checking SubstitutionView()
@@ -110,5 +113,3 @@ class TestSaveSubstitution(TestCase):
         response = self.client.get('/save/substitution/15')
         self.assertRedirects(
             response, '/', status_code=302, target_status_code=200)
-
-    

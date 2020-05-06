@@ -76,8 +76,8 @@ class TestSaveSave(TestCase):
     @classmethod
     def setUpTestData(cls):
         cls.client = Client()
-        cls.favorites_url = reverse('save:favorites')
         cls.save_url = reverse('save:save')
+        cls.favorites_url = reverse('save:favorites')
         db_init()
     
     def test_save_if_user_not_logged_in(self):   # checking saving_product()
