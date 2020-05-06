@@ -42,6 +42,7 @@ app_purbeurre/save/ products saving functionalities\
 app_purbeurre/search/ products searching and printing functionalities\
 app_purbeurre/static/ all the static files, with Boostrap, JQuery, Java Script, images and css/sass libraries\
 app_purbeurre/templates/ all the basics and home html templates
+app_purbeurre/tests/ all the views, urls and models are tested there
 
 ## Built with :
 
