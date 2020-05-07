@@ -146,8 +146,3 @@ LOGIN_URL = "/authentication"
 
 # Activate Django-Heroku.
 django_heroku.settings(locals())
-
-
-# Simplified static file serving.
-# https://warehouse.python.org/project/whitenoise/
-STATICFILES_STORAGE = 'whitenoise.storage.CompressedStaticFilesStorage' 
