@@ -1,0 +1,193 @@
+// Global styling for this theme
+
+body,
+html {
+  width: 100%;
+  height: 100%;
+}
+
+//- Custom horizontal rules
+
+hr.divider {
+  max-width: 3.25rem;
+  border-width: 0.2rem;
+  border-color: $primary;
+}
+
+hr.light {
+  border-color: $white;
+}
+
+//- Button restyling
+
+.btn {
+  font-family: $font-family-sans-serif;
+}
+
+.btn-outline-info {
+  color: $black;
+  border-color: $black;
+  background-color: $white;
+  &:hover {
+    color: white;
+    background-color: $brown;
+    border-color: $brown;
+  }
+}
+
+//- Custom XL button styling
+
+.btn-xl {
+  padding: 1.25rem 2.25rem;
+  font-size: 0.85rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  border: none;
+  border-radius: 10rem;
+}
+
+//- Page section styling
+
+.page-section {
+  padding: 8rem 0;
+}
+
+// - Custom texts
+
+.text-icons {
+  color: $cookie;
+  &:hover {
+    color: $black;  //highlight icon
+  }
+}
+
+// - Custom products cards
+
+.nutriscore-a { background-color: #06b600; }
+.nutriscore-b { background-color: #76ff40; }
+.nutriscore-c { background-color: #dfdb1c; }
+.nutriscore-d { background-color: #ff8800; }
+.nutriscore-e { background-color: #ff0000; }
+
+.product-card {
+ 	width: 300px;
+  min-height: 300px;
+  background-color: $cookie;
+  padding-bottom: -20rem;
+ }
+
+.product-image-size {
+	width: 100%;
+	height: 150px;
+}
+
+.product-nutriscore {
+	width: 80px; 
+	height: 80px; 
+  line-height: 80px; 
+  top: -7px;
+  left: calc(100% - 65px);
+  font-weight: bold;
+  border-radius: 0.25rem;
+  color: $white;
+}
+
+.product-image-size-max {
+	max-width: 100%;
+  max-height: 100%;
+}
+
+.product-title {
+  min-height: 90px;
+  color: $white;
+  margin-bottom: -10px;
+}
+
+// - Custom headers
+
+.profile-header {
+  height: 300px;
+  width:100%;
+  background: linear-gradient(to bottom, rgba(92, 77, 66, 0.8) 0%, rgba(92, 77, 66, 0.8) 100%), url('../img/profile_img.jpg');
+  background-size: cover;
+}
+
+.product-header {
+  height: 300px;
+  width:100%;
+  background-repeat: no-repeat; 
+  background-size: contain; 
+  background-position-x: 30%;
+}
+
+// - Custom product details
+
+.product-details-nutriscore {
+  font-size: 50px; 
+  height: 100px; 
+  width: 100px; 
+  margin: auto;
+  line-height: 100px;
+  border-radius: 0.25rem;
+  color: $white;
+}
+
+// - Pagination
+
+.page-link {
+  position: relative;
+  display: block;
+  padding: $pagination-padding-y $pagination-padding-x;
+  margin-left: -$pagination-border-width;
+  line-height: $pagination-line-height;
+  color: $black;
+  background-color: $pagination-bg;
+  border: $pagination-border-width solid $black;
+
+  &:hover {
+    z-index: 2;
+    color: $white;
+    text-decoration: none;
+    background-color: $cookie;
+    border-color: $black;
+  }
+}
+
+.page-item {
+  &:first-child {
+    .page-link {
+      margin-left: 0;
+      @include border-left-radius($border-radius);
+    }
+  }
+  &:last-child {
+    .page-link {
+      @include border-right-radius($border-radius);
+    }
+  }
+
+  &.active .page-link {
+    z-index: 3;
+    color: $pagination-active-color;
+    background-color: $pagination-active-bg;
+    border-color: $pagination-active-border-color;
+  }
+
+  &.disabled .page-link {
+    color: $black;
+    pointer-events: none;
+    // Opinionated: remove the "hand" cursor set previously for .page-link
+    cursor: auto;
+    background-color: $pagination-disabled-bg;
+    border-color: $black;
+  }
+}
+
+// - Custom alert messages
+
+.alert-warning {
+    color: $white;
+    background-color: $brown;
+    border-color: $brown;
+    margin-top: 1rem;
+}
