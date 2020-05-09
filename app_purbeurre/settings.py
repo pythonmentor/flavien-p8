@@ -140,5 +140,4 @@ LOGOUT_REDIRECT_URL = "/"
 LOGIN_URL = "/authentication"
 
 # Activate Django-Heroku.
-if os.environ.get('ENV') == 'PRODUCTION':
-    django_heroku.settings(locals())
+django_heroku.settings(locals())
