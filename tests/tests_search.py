@@ -72,15 +72,41 @@ class TestSearch(TestCase):
     @classmethod
     def setUpTestData(cls):
         cls.client = Client()
+        cls.search_url = reverse('search:search')
         db_init()
-
-    def test_details_page_returns_200(self):
-        """To check the url validity when there's an existing food"""
-        response = self.client.get('/search/details/1')
-        self.assertTemplateUsed(response, 'search/product_details.html')
-        self.assertEqual(response.status_code, 200)
 
     def test_details_page_error_404_when_no_such_product(self):
         """To check the invalid response when there's no food"""
         response = self.client.get('/search/details/15')
         self.assertEqual(response.status_code, 404)
+
+    def test_search_page_returns_200(self):     # checking ProductSearchView()
+        """To test the status code and the search page"""
+        response = self.client.get(self.search_url +"?query=food")
+        self.assertTemplateUsed(response, 'search/search_results.html')
+        self.assertEqual(response.status_code, 200)
+
+    def test_search_page_error_404_when_invalid_url(self):
+        response = self.client.get(self.search_url + "?query=Nutella&page=@")
+        self.assertEqual(response.status_code, 404)
+
+    def test_no_entry_to_search(self):
+        "To check the redirection if empty form entry"
+        response = self.client.get(self.search_url)
+        self.assertRedirects(
+            response, '/', status_code=302, target_status_code=200)
+
+    def test_searching_context(self):
+        "To check the context query method"
+        response = self.client.get(self.search_url + "?query=Nutella")
+        self.assertEqual(response.context_data["search"], "Nutella")
+
+    def test_search_is_valid(self):
+        "To check if we find a product if it's there"
+        response = self.client.get(self.search_url + "?query=Ovomaltine")
+        self.assertEqual(response.context_data["object_list"].count(), 1)
+
+    def test_no_product_available(self):
+        "To check if we don't actually find any undesirable product"
+        response = self.client.get(self.search_url + "?query=banane")
+        self.assertEqual(response.context_data["object_list"].count(), 0)
