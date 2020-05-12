@@ -24,7 +24,7 @@ class Database():
         """inserts the defined categories in database"""
         for category in API_CATEGORIES:
             if not Category.objects.filter(name=category).exists():
-                Category.objects.create(name=category)  
+                Category.objects.create(name=category)
 
     def add_products(self):
         """inserts products of every category into the database"""
