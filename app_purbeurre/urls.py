@@ -25,4 +25,4 @@ urlpatterns = [
     path('authentication/', include("authentication.urls")),
     path('search/', include("search.urls")),
     path('save/', include("save.urls")),
-] + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
+]
