@@ -22,7 +22,6 @@ urllib3 = "==1.25.8"
 whitenoise = "==5.0.1"
 django-heroku = "*"
 coverage = "*"
-node-js = "*"
 node = "*"
 
 [requires]
