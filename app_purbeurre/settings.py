@@ -28,10 +28,7 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = "z*?oU1#],e(x\\\tG]JLN\rcW=g"
 
 # SECURITY WARNING: don't run with debug turned on in production!
-if os.environ.get("ENV") == "PRODUCTION":
-    DEBUG = False
-else:
-    DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = ["flavien-test-p8.herokuapp.com", "127.0.0.1"]
 
@@ -45,9 +42,9 @@ INSTALLED_APPS = [
     "django.contrib.sessions",
     "django.contrib.messages",
     "django.contrib.staticfiles",
-    "authentication",
-    "save",
-    "search",
+    "authentication.apps.AuthenticationConfig",
+    "save.apps.SaveConfig",
+    "search.apps.SearchConfig",
 ]
 
 MIDDLEWARE = [
@@ -137,7 +134,7 @@ STATIC_URL = "/static/"
 STATIC_ROOT = os.path.join(BASE_DIR, "staticfiles")
 
 # Extra places for collectstatic to find static files.
-STATICFILES_DIRS = (os.path.join(BASE_DIR, "static"),)
+STATICFILES_DIRS = [os.path.join(BASE_DIR, "static")]
 
 LOGIN_REDIRECT_URL = "/"
 LOGOUT_REDIRECT_URL = "/"
