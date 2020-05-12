@@ -14,7 +14,7 @@ import os
 
 
 # Configure Django App for Heroku.
-import dj_database_url
+import django_heroku
 
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
@@ -33,7 +33,7 @@ if os.environ.get('ENV') == 'PRODUCTION':
 else:
     DEBUG = True
 
-ALLOWED_HOSTS = ['pbflavien.herokuapp.com', '127.0.0.1', '.herokuapp.com']
+ALLOWED_HOSTS = ['pbflavien.herokuapp.com', '127.0.0.1']
 
 
 # Application definition
@@ -58,7 +58,6 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
-    'whitenoise.middleware.WhiteNoiseMiddleware',
 ]
 
 ROOT_URLCONF = 'app_purbeurre.urls'
@@ -145,18 +144,5 @@ LOGIN_REDIRECT_URL = "/"
 LOGOUT_REDIRECT_URL = "/"
 LOGIN_URL = "/authentication"
 
-if os.environ.get('ENV') == 'PRODUCTION':
-
-    # Static files settings
-    PROJECT_ROOT = os.path.dirname(os.path.abspath(__file__))
-
-    STATIC_ROOT = os.path.join(PROJECT_ROOT, 'staticfiles')
-
-    # Extra places for collectstatic to find static files.
-    STATICFILES_DIRS = (
-        os.path.join(BASE_DIR, 'static'),
-    )
-    STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
-
-    db_from_env = dj_database_url.config(conn_max_age=500)
-    DATABASES['default'].update(db_from_env)
+# Activate Django-Heroku.
+django_heroku.settings(locals())
